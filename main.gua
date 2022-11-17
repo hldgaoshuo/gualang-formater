@@ -1,0 +1,41 @@
+con Animal = class() {
+    var class.iq = 100
+    con class.level = 'low'
+    con new = function(sex, age) {
+        var this.sex = sex
+        var this.age = age
+    }
+    con class.sayLevel = function() {
+        log('level', class.level)
+    }
+    con class.sayIQ = function() {
+        log('iq animal', class.iq)
+    }
+}
+con Human = class(Animal) {
+    con class.level = 'high'
+    con class.evolution = function() {
+        class.iq += 1
+    }
+    con class.sayIQ = function() {
+        super.sayIQ().a.b().c.d
+        log('iq human', class.iq)
+    }
+    con hello = function() {
+        log('my iq is', class.iq)
+    }
+}
+log('animal iq', Animal.iq)
+Animal.iq += 1
+log('animal iq', Animal.iq)
+log('animal level', Animal.level)
+log('human iq', Human.iq)
+Human.evolution()
+Human.evolution()
+log('human iq', Human.iq)
+log('animal iq', Animal.iq)
+Animal.sayLevel()
+Human.sayLevel()
+var h = Human.new('female', 15)
+h.hello()
+Human.sayIQ()
